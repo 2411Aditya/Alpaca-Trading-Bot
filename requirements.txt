@@ -1,0 +1,11 @@
+flask
+tensorflow
+pandas
+numpy
+ta
+yfinance
+scikit-learn
+matplotlib
+stable-baselines3
+gym
+alpaca-trade-api

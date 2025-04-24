@@ -1,0 +1,107 @@
+/* Reset default margins and fonts */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Header */
+h1 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Input styling */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button base styles */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Start button */
+#startTradingBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#startTradingBtn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Stop button */
+#stopTradingBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#stopTradingBtn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Status display */
+#status {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#statusText {
+    font-weight: bold;
+    color: #007bff;
+    animation: pulse 2s infinite;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        color: #007bff;
+    }
+    50% {
+        color: #0056b3;
+    }
+}

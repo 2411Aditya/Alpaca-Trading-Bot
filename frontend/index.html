@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trading Bot</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Trading Bot</h1>
+        <form id="tradingForm">
+            <label for="symbol">Stock Symbol:</label>
+            <input type="text" id="symbol" name="symbol" value="AAPL" required>
+            <label for="qty">Quantity:</label>
+            <input type="number" id="qty" name="qty" value="1" min="1" required>
+            <button type="submit" id="startTradingBtn">Start Trading</button>
+        </form>
+
+        <button id="stopTradingBtn" style="margin-top: 10px;">Stop Trading</button>
+
+        <div id="status">
+            <p>Status: <span id="statusText">Idle</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Start trading handler
+        document.getElementById('tradingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const symbol = document.getElementById('symbol').value;
+            const qty = document.getElementById('qty').value;
+
+            fetch('/start-autotrading', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ symbol: symbol, qty: qty })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('statusText').textContent = "Trading Started!";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('statusText').textContent = "Error starting trading.";
+            });
+        });
+
+        // Stop trading handler
+        document.getElementById('stopTradingBtn').addEventListener('click', function() {
+            fetch('/stop-autotrading', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('statusText').textContent = "Trading Stopped!";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('statusText').textContent = "Error stopping trading.";
+            });
+        });
+    </script>
+</body>
+</html>

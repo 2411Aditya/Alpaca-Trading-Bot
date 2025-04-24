@@ -5,7 +5,7 @@ import pandas as pd
 from stable_baselines3 import DQN
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.evaluation import evaluate_policy
-from simulate_trading_env import StockTradingEnv
+from backend.simulate_trading_env import StockTradingEnv
 
 MODEL_PATH = "models/trading_rl_model"
 DATA_PATH = "data/stock_data_with_predictions.csv"  # <- make sure this file exists
